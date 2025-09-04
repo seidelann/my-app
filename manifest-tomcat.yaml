@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: tomcat-jdk21
+  namespace: tomcat
   labels:
     app: tomcat-jdk21
 spec:
@@ -25,6 +26,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: tomcat-jdk21-service
+  namespace: tomcat
 spec:
   selector:
     app: tomcat-jdk21
@@ -38,6 +40,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: tomcat-jdk21-ingress
+  namespace: tomcat
 spec:
   rules:
     - host: mytomcat
