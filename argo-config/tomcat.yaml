@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tomcat
+spec:
+  destination:
+    namespace: tomcat
+    server: https://kubernetes.default.svc
+  source:
+    path: ./tomcat-jdk/
+    repoURL: git@github.com:seidelann/my-app.git
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
